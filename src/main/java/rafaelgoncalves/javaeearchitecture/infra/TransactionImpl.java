@@ -1,22 +1,32 @@
 package rafaelgoncalves.javaeearchitecture.infra;
 
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+
 import rafaelgoncalves.javaeearchitecture.application.Transaction;
 
 public class TransactionImpl implements Transaction {
+	
+	private EntityManager entityManager;
+	
+    @Inject
+	public TransactionImpl(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
 
 	@Override
 	public void begining() {
-		System.out.println("Start transaction");
+		entityManager.getTransaction().begin();
 	}
 
 	@Override
 	public void commit() {
-		System.out.println("Commit transaction");
+		entityManager.getTransaction().commit();;
 	}
 
 	@Override
 	public void rollback() {
-		System.out.println("Rollback transaction");
+		entityManager.getTransaction().rollback();
 	}
 	
 }

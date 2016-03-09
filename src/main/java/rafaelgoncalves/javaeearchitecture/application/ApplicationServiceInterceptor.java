@@ -1,7 +1,6 @@
 package rafaelgoncalves.javaeearchitecture.application;
 
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.Optional;
 
 import javax.inject.Inject;
@@ -21,14 +20,17 @@ public class ApplicationServiceInterceptor {
 		Optional<Object> object = Optional.empty(); 
 		try {
 			transaction.begining();
-			object = Optional.of(invocationContext.proceed());
+			Object objectReturned = invocationContext.proceed();
+			if(objectReturned != null) {
+				object = Optional.of(objectReturned);
+			}
 			System.out.println("Method called: " + invocationContext.getMethod());
 			transaction.commit();
 		} catch (InvocationTargetException e) {
 			transaction.rollback();
 			throw e.getTargetException();
 		}
-		return object.get();
+		return object.orElse(null);
 	}
 	
 }

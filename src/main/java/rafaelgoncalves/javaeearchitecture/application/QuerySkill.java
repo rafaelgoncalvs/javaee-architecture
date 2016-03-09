@@ -1,6 +1,7 @@
 package rafaelgoncalves.javaeearchitecture.application;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
@@ -17,7 +18,16 @@ public class QuerySkill {
 		this.skillRepository = skillRepository;
 	}
 
-	public List<Skill> findAll() {
-		return skillRepository.findAll();
+	public List<SkillDTO> findAll() {
+		List<Skill> skills = skillRepository.findAll();
+		return skills.stream()
+				.map(skill -> createSkillDTO(skill))
+				.collect(Collectors.toList());
+	}
+
+	private SkillDTO createSkillDTO(Skill skill) {
+		return new SkillDTO(
+				skill.getId(), 
+				skill.getName());
 	}
 }
