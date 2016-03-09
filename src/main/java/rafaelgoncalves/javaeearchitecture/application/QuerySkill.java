@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import rafaelgoncalves.javaeearchitecture.api.ApplicationService;
 import rafaelgoncalves.javaeearchitecture.domain.Skill;
 import rafaelgoncalves.javaeearchitecture.domain.SkillRepository;
 

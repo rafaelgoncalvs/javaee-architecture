@@ -4,7 +4,7 @@
 	bean-discovery-mode="all">
 
 	<interceptors>
-		<class>rafaelgoncalves.javaeearchitecture.api.ApplicationServiceInterceptor</class>
+		<class>rafaelgoncalves.javaeearchitecture.application.ApplicationServiceInterceptor</class>
 	</interceptors>
 	
 </beans>

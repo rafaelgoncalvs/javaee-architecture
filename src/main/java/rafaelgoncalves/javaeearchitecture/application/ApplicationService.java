@@ -1,4 +1,4 @@
-package rafaelgoncalves.javaeearchitecture.api;
+package rafaelgoncalves.javaeearchitecture.application;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

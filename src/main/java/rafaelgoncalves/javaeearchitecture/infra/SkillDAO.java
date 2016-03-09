@@ -13,6 +13,7 @@ public class SkillDAO implements SkillRepository {
 
 	@Override
 	public List<Skill> findAll() {
+		System.out.println("method findAll Skills called");
 		return Collections.emptyList();
 	}
 	
